@@ -10,11 +10,31 @@ def jainsall(list):
     for i in list:
         sum2 = sum2 + int(i)**2                     # For-loop finds sum of squares of all values in list (values type cast to int)
 
-    result = (sum1**2)/(len(throughputs)*sum2)      # Calculates JFI based on the two sums found
+    result = (sum1**2)/(length*sum2)      # Calculates JFI based on the two sums found
     return result
 
 
-input_list = input('Enter list of throughputs separated by a space: ')      # User inputs throughput values
-throughputs = input_list.split()                    # Input converted to list (of strings)
-output = jainsall(throughputs)                      # Function called and takes list as args, result saved as output
+readylist = []
+i = 1
+while True:
+    try:
+        length = int(input("Enter the length of the list :"))
+    except ValueError:
+        print("Need to input a number")
+        continue
+    else:
+        #Length input is accepteble
+        break
+
+while i <= length:
+    try:
+        uinput = int(input("enter item:"))
+        readylist.append(uinput)
+    except ValueError:
+        print("Need to input a number")
+    else:
+        i += 1
+
+
+output = jainsall(readylist)                      # Function called and takes list as args, result saved as output
 print('The JFI is ', output)                        # Output printed to screen

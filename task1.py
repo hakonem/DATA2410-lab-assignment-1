@@ -6,7 +6,21 @@ def jains(tp1, tp2):
     return result
 
 
-n1 = int(input('Enter throughput value 1: '))       # User inputs first throughput value
-n2 = int(input('Enter throughput value 2: '))       # User inputs second throughput value
+while True:
+    try:
+        n1 = int(input('Enter throughput value 1: '))       # User inputs first throughput value
+    except ValueError:
+        print("Need to input a number")
+        continue
+    else:
+        break
+while True:
+    try:
+        n2 = int(input('Enter throughput value 2: '))       # User inputs second throughput value
+    except ValueError:
+        print("Need to input a number")
+        continue
+    else:
+        break
 output = jains(n1, n2)                              # Function called and takes inputs as args, result saved as output
 print('The JFI is ', output)                        # Output printed to screen
