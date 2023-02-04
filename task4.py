@@ -1,7 +1,8 @@
-# Task 4
-# Read the throughput values from a file and then use your jainsall function to calculate a JFI.
-# Note: You must use the same units
-# JFI = Square of the sum of all throughputs/(N x sum of squares of all throughputs)
+# TASK 4
+# Reads the throughput values from a file ('new_text.txt') and then uses jainsall function to calculate a JFI.
+# Line 2 is 1200 Kbps, so the numeric value must be divided by 1000 so that all throughputs are given in the same unit (Mbps).
+
+from task2 import jainsall                          # Imports the jainsall function from task2.py
 
 with open("new_text.txt") as file:                  # Open text file
     data = file.read()                              # Read contents of file and save to variable 'data'
@@ -11,17 +12,5 @@ kbps = throughputs[1]                               # Saves the second element i
 throughputs[1] = kbps/1000                          # Replaces the second element in the list with kbps/1000
 
 
-def jainsall(list):
-    sum1 = 0
-    for i in list:
-        sum1 = sum1 + float(i)                        # For-loop finds sum of all values in list (values type cast to int)
-
-    sum2 = 0
-    for i in list:
-        sum2 = sum2 + float(i)**2                     # For-loop finds sum of squares of all values in list (values type cast to int)
-
-    result = (sum1**2)/(len(throughputs)*sum2)      # Calculates JFI based on the two sums found
-    return result
-
-output = jainsall(throughputs)
-print('The JFI is ', output)
+output = jainsall(throughputs)                      # jainsall function called with list as arg, result saved as output
+print('The JFI is ', output)                        # Output printed to screen
